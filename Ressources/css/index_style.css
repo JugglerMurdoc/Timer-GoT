@@ -1,0 +1,103 @@
+/*GAME OF THRONE FONT*/
+@font-face {
+    font-family: 'GoT'; /*a name to be used later*/
+    src: url('./GameOfThronesFont.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'GoTNumbers'; /*a name to be used later*/
+    src: url('./xenippa1.ttf'); /*URL to font*/
+}
+
+/*
+Bootstrap cancel
+ */
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+body {
+	background-image: url("Elegant_Background-8.jpg")
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.container {
+	margin-right:auto;
+  margin-right:auto; 
+}
+
+.centered
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.btn {
+  font-family: 'GoT';
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border-style: none;
+  border-top:  solid 1px !important;
+  text-decoration: none;
+  width:100%;
+}
+
+.btn:hover {
+  background: #292929;
+  text-decoration: none;
+}
+
+/*FAMILLIES COLOURS*/
+
+.btn.Stark,.time.Stark {
+  background-color: rgb(204,204,204);
+  color: rgb(142,142,142);
+  border-color: rgb(142,142,142);
+
+}
+.btn.Greyjoy,.time.Greyjoy {
+  background-color: rgb(0,0,0);
+  color: rgb(139,120,64) ;
+  border-color: rgb(139,120,64) ;
+}
+.btn.Lannister,.time.Lannister {
+  background-color: rgb(110,9,1);
+  color: rgb(229,129,67);
+  border-color: rgb(229,129,67);
+}
+.btn.Baratheon,.time.Baratheon {
+  background-color: rgb(182,159,4);
+  color: rgb(0,0,0) ;
+  border-color: rgb(0,0,0) ;
+}
+.btn.Martell,.time.Martell {
+  background-color: rgb(178,113,11);
+  color: rgb(156,46,0) ;
+  border-color: rgb(156,46,0) ;
+}
+.btn.Tyrell,.time.Tyrell {
+  background-color: rgb(62,106,11);
+  color: rgb(208,204,68) ;
+  border-color: rgb(208,204,68) ;
+}
+
+.time{
+  font-family: 'GoTNumbers';
+  font-size: 35px;
+  text-align: center;
+  padding: 3px;
+}
+
+.timer-button {
+  max-width: 205px !important;
+}
