@@ -2,6 +2,9 @@ function indexController($scope,$http,$interval){
 	
     initFamillies();
 
+    var startAllButtonText='START ALL'
+    var startAllButtonIs
+
     /**
      * []
      * @param  {[type]} famillyName [description]
@@ -26,6 +29,16 @@ function indexController($scope,$http,$interval){
                 
          }
 
+    $scope.startAllButtonClick = function(){
+        for(var fam in $scope.famillies){
+            if($scope.famillies[fam].timerIsRunning === undefined || $scope.famillies[fam].timerIsRunning === false){
+                
+                $scope.toggleTimer($scope.famillies[fam].name);
+            }
+        }
+    }   ;
+
+
     /**
      * [Does the ajax call to get the timer objects.]
      * @param  {[string or string array]} famillyName [Contains the name of the familly, with its first character capitalized.]
@@ -33,7 +46,7 @@ function indexController($scope,$http,$interval){
      */
      $scope.getTimersAjax = function(familly){
         //AJAX Call
-        var responsePromise = $http.get("http://192.168.1.12:4242/timers?FAMILIES[]="+famillyName);
+        var responsePromise = $http.get("http://192.168.1.12:4242/timers?FAMILIES[]="+familly.name);
 
         responsePromise.success(function(data, status, headers, config) {
             return data;

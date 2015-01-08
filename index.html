@@ -15,8 +15,15 @@
     <div data-ng-controller="indexController"  class="row">
       <div class="col-md-2" ng-repeat="familly in famillies" id={{familly.name}}>
         <img ng-src="{{familly.picture}}" alt={{familly.name}} height="570" width="205">
-        <div class="{{familly.name}} time">{{familly.remainingTime | date : "hh:mm:ss"}}</div>
+        <div class="{{familly.name}} time">{{familly.remainingTime | date : "H:mm:ss"}}</div>
         <button class="{{familly.name}} btn timer-button"  ng-click="toggleTimer(familly.name)" type="submit">{{familly.buttonText}} </button>
+      </div>
+      <div class="container">
+        <div class="row">
+          <button class="btn-success col-md-4"  ng-click="startAllButtonClick()">START ALL</button>
+          <button class="btn-warning col-md-4">STOP ALL</button>
+          <button class="btn-danger col-md-4">RESET ALL</button>
+        </div>
       </div>
     </div>
   </div>
