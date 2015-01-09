@@ -1,5 +1,18 @@
 function indexController($scope, $http, $interval) {
 
+    function initFamilies() {
+        /**
+     * [Basic information about each family]
+     * @type {Array}
+     */
+        $scope.families = new Array();
+        $scope.families.push(new Family('Greyjoy'));
+        $scope.families.push(new Family('Baratheon'));
+        $scope.families.push(new Family('Lannister'));
+        $scope.families.push(new Family('Stark'));
+        $scope.families.push(new Family('Tyrell'));
+        $scope.families.push(new Family('Martell'));
+    }
 
     /**
      * [Initiate de families informations]
@@ -97,21 +110,7 @@ function indexController($scope, $http, $interval) {
 
     $scope.updateTime = function(family) {
         family.remainingTime -= 1000;
-
     }
 
-    function initFamilies() {
-        /**
-     * [Basic information about each family]
-     * @type {Array}
-     */
-        $scope.families = new Array();
-        $scope.families.push(new Family('Greyjoy'));
-        $scope.families.push(new Family('Baratheon'));
-        $scope.families.push(new Family('Lannister'));
-        $scope.families.push(new Family('Stark'));
-        $scope.families.push(new Family('Tyrell'));
-        $scope.families.push(new Family('Martell'));
-    }
-
+  
 }
