@@ -1,5 +1,5 @@
-function indexController($scope,$http,$interval){
-	
+function indexController($scope, $http, $interval) {
+
     initFamilies();
 
     /**
@@ -14,7 +14,7 @@ function indexController($scope,$http,$interval){
         }
     }
 
-    $scope.resetAllButtonClick = function () {
+    $scope.resetAllButtonClick = function () {  
         for (var i in $scope.families) {
             $scope.families[i].reset();
         }
@@ -36,9 +36,9 @@ function indexController($scope,$http,$interval){
      * @param  {[string or string array]} familyName [Contains the name of the family, with its first character capitalized.]
      * @return {[An array of objects]} data [The timers object]
      */
-    $scope.getTimersAjax = function(family){
+    $scope.getTimersAjax = function (family) {
         //AJAX Call
-        var responsePromise = $http.get("http://192.168.1.12:4242/timers?FAMILIES[]="+family.name);
+        var responsePromise = $http.get("http://192.168.1.12:4242/timers?FAMILIES[]=" + family.name);
 
         responsePromise.success(function (data, status, headers, config) {
             return data;
@@ -54,14 +54,13 @@ function indexController($scope,$http,$interval){
      * @param  {[String]} familyName [The name of the family we're looking for]
      * @return {[Object]} family [The matching family object]
      */
-  
-    function getfamilyObject(familyName)
-    {
+
+    function getfamilyObject(familyName) {
         var n = $scope.families.length;
         var i;
-        for(i = 0; i < n; i++){
-            var currentName = $scope.families[i].name; 
-            if(currentName === familyName){
+        for (i = 0; i < n; i++) {
+            var currentName = $scope.families[i].name;
+            if (currentName === familyName) {
                 return $scope.families[i];
             }
         }
@@ -118,20 +117,20 @@ function indexController($scope,$http,$interval){
      * [Initiate de families informations]
      * @return {[type]} [description]
      */
-     function initFamilies() {
-            /**
-         * [Basic information about each family]
-         * @type {Array}
-         */
-            $scope.families = new Array();
-            $scope.families.push(new Family('Greyjoy'));
-            $scope.families.push(new Family('Baratheon'));
-            $scope.families.push(new Family('Lannister'));
-            $scope.families.push(new Family('Stark'));
-            $scope.families.push(new Family('Tyrell'));
-            $scope.families.push(new Family('Martell'));
-        }
-
- 
-  
+    function initFamilies() {
+        /**
+     * [Basic information about each family]
+     * @type {Array}
+     */
+        $scope.families = new Array();
+        $scope.families.push(new Family('Greyjoy'));
+        $scope.families.push(new Family('Baratheon'));
+        $scope.families.push(new Family('Lannister'));
+        $scope.families.push(new Family('Stark'));
+        $scope.families.push(new Family('Tyrell'));
+        $scope.families.push(new Family('Martell'));
     }
+
+
+
+}

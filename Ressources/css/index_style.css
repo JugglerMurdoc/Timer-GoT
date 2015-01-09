@@ -101,3 +101,17 @@ body {
 .timer-button {
   max-width: 205px !important;
 }
+
+.top-buffer {
+     margin-top:20px; 
+}
+
+.brick-button {
+    font-family: 'GoT' !important;
+    padding : 9px;
+    padding-top : 15px;
+    font-size:120%;
+    color: rgb(208,204,68);
+    background-color : rgb(156,46,0);
+    border-color : black;   
+}
