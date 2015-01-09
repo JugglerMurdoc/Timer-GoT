@@ -7,13 +7,18 @@ function indexController($scope, $http, $interval) {
      */
     initFamilies();
 
-   
-    $scope.startAllButtonClick = function () {
+   $scope.startAllButtonClick = function () {
         for (var i in $scope.families) {
             $scope.families[i].startTimer();
         }
     }
 
+   $scope.stopAllButtonClick = function () {
+       console.log('STTTOOOPPP!');
+        for (var i in $scope.families) {
+            $scope.families[i].stopTimer();
+        }
+    }
 
     $scope.getTimersAjax = function (family) {
         //AJAX Call
@@ -91,7 +96,6 @@ function indexController($scope, $http, $interval) {
     }
 
     $scope.updateTime = function(family) {
-        console.log(family);
         family.remainingTime -= 1000;
 
     }
