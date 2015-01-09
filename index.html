@@ -13,10 +13,10 @@
 <body>
   <div class="container vertical-center" id="indexContainer">
     <div data-ng-controller="indexController"  class="row">
-      <div class="col-md-2" ng-repeat="familly in famillies" id={{familly.name}}>
-        <img ng-src="{{familly.picture}}" alt={{familly.name}} height="570" width="205">
-        <div class="{{familly.name}} time">{{familly.remainingTime | date : "H:mm:ss"}}</div>
-        <button class="{{familly.name}} btn timer-button"  ng-click="toggleTimer(familly.name)" type="submit">{{familly.buttonText}} </button>
+      <div class="col-md-2" ng-repeat="family in families" id={{family.name}}>
+        <img ng-src="{{family.picture}}" alt={{family.name}} height="570" width="205">
+        <div class="{{family.name}} time">{{family.remainingTime | date : "H:mm:ss"}}</div>
+        <button class="{{family.name}} btn timer-button"  ng-click="family.buttonTimerButtonClick()" type="submit">{{family.buttonText}} </button>
       </div>
       <div class="container">
         <div class="row">
