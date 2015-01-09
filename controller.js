@@ -14,12 +14,22 @@ function indexController($scope,$http,$interval){
         }
     }
 
+    $scope.resetAllButtonClick = function () {
+        for (var i in $scope.families) {
+            $scope.families[i].reset();
+        }
+    }
 
     $scope.stopAllButtonClick = function () {
         for (var i in $scope.families) {
             $scope.families[i].stopTimer();
         }
     }
+
+    $scope.updateTime = function (family) {
+        family.remainingTime -= 1000;
+    }
+
 
     /**
      * [Does the ajax call to get the timer objects.]
@@ -40,21 +50,11 @@ function indexController($scope,$http,$interval){
     }
 
     /**
-     * [Changes the text of the timer button after a click]
-     * @param  {[type]} familyName [The name of the family who's buttons has been pressed.]
-     */
-    $scope.toggleButtonText = function(family){
-        family.buttonText = (family.timerIsRunning)?'S T O P':'S T A R T';
-
-    }
-
-    /**
      * [returns the family object matching the given familyName]
      * @param  {[String]} familyName [The name of the family we're looking for]
      * @return {[Object]} family [The matching family object]
      */
-
-           
+  
     function getfamilyObject(familyName)
     {
         var n = $scope.families.length;
@@ -108,28 +108,17 @@ function indexController($scope,$http,$interval){
         this.toggleButtonText = function () {
             this.buttonText = (this.timerIsRunning) ? 'S T O P' : 'S T A R T';
         }
-        
+        this.reset = function () {
+            this.remainingTime = new Date(0, 0, 0, 3, 0, 0, 0);
+        }
 
     }
-
-    $scope.updateTime = function(family) {
-        family.remainingTime -= 1000;
-    }
-
-    var family = function(familyName){
-        this.name = familyName;
-        this.buttonText =  'START';
-        this.timerIsRunning = false;
-        this.picture  = "./Ressources/family_pictures/"+familyName+".jpg";
-        this.remainingTime = new Date(0,0,0,3,0,0,0);
-    };
-
 
     /**
      * [Initiate de families informations]
      * @return {[type]} [description]
      */
-        function initFamilies() {
+     function initFamilies() {
             /**
          * [Basic information about each family]
          * @type {Array}
